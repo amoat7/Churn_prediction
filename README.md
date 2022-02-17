@@ -14,6 +14,8 @@ How do you run your files? What should happen when you run your files?
 
 - Install Anconda and create an environment 
 
+- Run `pip install -r requirements.txt`
+
 - Run `python churn_library.py` to train models and check outputs
 
 - Run `python churn_script_logging_and_tests.py` to test library and see output logs.
