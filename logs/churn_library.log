@@ -6,9 +6,10 @@ root - INFO - Age distribution plotted
 root - INFO - Churn distribution plotted
 root - INFO - Marital distribution plotted
 root - INFO - Heat map plotted
+root - INFO - Distribution of total transactions plotted
 root - INFO - Testing encoder_helper: SUCCESS
 root - INFO - Testing perform_feature_engineering. Data split successful: SUCCESS
-root - INFO - Testing perform_feature_engineering. Data sizes are ok: SUUCESS
+root - INFO - Testing perform_feature_engineering. Data sizes are ok: SUCCESS
 root - INFO - Logistic Regression model was saved.
 root - INFO - Random Forest model was saved.
 root - INFO - Feature importances plot saved.

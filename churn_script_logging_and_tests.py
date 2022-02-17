@@ -82,6 +82,12 @@ def test_eda():
     except AssertionError as err:
         logging.error("Heat map not plotted")
         raise err
+    try:
+        assert os.path.isfile("images/eda/total_transactions.png") is True
+        logging.info('Distribution of total transactions plotted')
+    except AssertionError as err:
+        logging.error("Distribution of total transactions not plotted")
+        raise err
 
 
 def test_encoder_helper():
@@ -130,7 +136,7 @@ def test_perform_feature_engineering():
     try:
         assert x_test.shape[0] == ceil(df_raw.shape[0] * 0.3)
         logging.info(
-            'Testing perform_feature_engineering. Data sizes are ok: SUUCESS')
+            'Testing perform_feature_engineering. Data sizes are ok: SUCCESS')
     except AssertionError as err:
         logging.error(
             'Testing perform_feature_engineering. Data sizes are incorrect: FAILED')

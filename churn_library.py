@@ -4,18 +4,18 @@ Churn prediction library
 Author: David Amoateng
 Date: 15-02-22
 '''
-
-from sklearn.metrics import plot_roc_curve, classification_report
-from sklearn.model_selection import GridSearchCV
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
 import joblib
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import matplotlib
+from sklearn.metrics import plot_roc_curve, classification_report
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split
+
 matplotlib.use('Agg')
 sns.set()
 
@@ -98,6 +98,13 @@ def perform_eda(df_eda):
         'Heat map of variable correlation',
         'heat_map')
 
+    # Plot distribution of total transactions
+    plot_figures(
+        sns.distplot(df_eda['Total_Trans_Ct']),
+        'Distribution of total transactions',
+        'total_transactions'
+    )
+
 
 def encoder_helper(df_data, category_lst):
     '''
@@ -118,6 +125,7 @@ def encoder_helper(df_data, category_lst):
 
 def perform_feature_engineering(df_eng):
     '''
+    helper function to perform feature engineering tasks such as test and train data splits.
     input:
               df_eng: pandas dataframe
 
@@ -299,7 +307,12 @@ def train_models(x_train, x_test, y_train, y_test):
     plt.figure(figsize=(15, 8))
     ax_roc = plt.gca()
     plot_roc_curve(lrc, x_test, y_test, ax=ax_roc, alpha=0.8)
-    plot_roc_curve(cv_rfc.best_estimator_, x_test, y_test, ax=ax_roc, alpha=0.8)
+    plot_roc_curve(
+        cv_rfc.best_estimator_,
+        x_test,
+        y_test,
+        ax=ax_roc,
+        alpha=0.8)
     plt.show(block=False)
     plt.savefig('images/results/roc_curve.png', dpi=600, bbox_inches='tight')
 
@@ -309,7 +322,7 @@ if __name__ == '__main__':
     DF = import_data(pth='data/bank_data.csv')
 
     # Perform EDA
-    EDA = perform_eda(df_eda=DF)
+    perform_eda(df_eda=DF)
 
     # Feature Engineering
     X_TRAIN, X_TEST, Y_TRAIN, Y_TEST = perform_feature_engineering(df_eng=DF)
