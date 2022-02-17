@@ -9,3 +9,9 @@ root - INFO - Heat map plotted
 root - INFO - Testing encoder_helper: SUCCESS
 root - INFO - Testing perform_feature_engineering. Data split successful: SUCCESS
 root - INFO - Testing perform_feature_engineering. Data sizes are ok: SUUCESS
+root - INFO - Logistic Regression model was saved.
+root - INFO - Random Forest model was saved.
+root - INFO - Feature importances plot saved.
+root - INFO - Logistic regression results plot saved.
+root - INFO - Random Forest plot saved.
+root - INFO - ROC plot saved.
